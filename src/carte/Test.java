@@ -7,34 +7,34 @@ public class Test {
 		
 		PaquetTriParRang paquet = new PaquetTriParRang();
 		
-		Card asDePique = new Card(COULEUR.PIQUE, 1);
+		Card asDePique = new Card(Couleur.PIQUE, 1);
 		paquet.addCard(asDePique);
 		
-		Card valetDeCarreaux = new Card(COULEUR.CARREAU, 11);
+		Card valetDeCarreaux = new Card(Couleur.CARREAU, 11);
 		paquet.addCard(valetDeCarreaux);
 		
 		
-		Card deuxDePique = new Card(COULEUR.PIQUE, 2);
+		Card deuxDePique = new Card(Couleur.PIQUE, 2);
 		paquet.addCard(deuxDePique);
 		
-		Card SeptDePique = new Card(COULEUR.PIQUE, 7);
+		Card SeptDePique = new Card(Couleur.PIQUE, 7);
 	    paquet.addCard(SeptDePique);
 		
-		Card dameDeCoeur = new Card(COULEUR.COEUR, 12);
+		Card dameDeCoeur = new Card(Couleur.COEUR, 12);
 		paquet.addCard(dameDeCoeur);
 		
-		Card asDeTreffe = new Card(COULEUR.TREFLE, 1);
+		Card asDeTreffe = new Card(Couleur.TREFLE, 1);
 		paquet.addCard(asDeTreffe);
 		
-		Card valetDeTreffe = new Card(COULEUR.TREFLE, 11);
+		Card valetDeTreffe = new Card(Couleur.TREFLE, 11);
 		paquet.addCard(valetDeTreffe);
-		Card deuxDeCarreau = new Card(COULEUR.CARREAU, 2);
+		Card deuxDeCarreau = new Card(Couleur.CARREAU, 2);
 		paquet.addCard(deuxDeCarreau);
 		
-		Card SeptDeCoeur = new Card(COULEUR.COEUR, 7);
+		Card SeptDeCoeur = new Card(Couleur.COEUR, 7);
 		paquet.addCard(SeptDeCoeur);
 		
-		Card dameDePique = new Card(COULEUR.PIQUE, 12);
+		Card dameDePique = new Card(Couleur.PIQUE, 12);
 		paquet.addCard(dameDePique);
 		
 		// Afficher le contenu avec des libellés du type "9 de trèfle".
@@ -85,19 +85,10 @@ public class Test {
 		System.out.println("**********************************************************************************");
 		
 		Paquet nouveauPaquet = new Paquet();
-		//nouveauPaquet.addCard(paquet.getPaquet().get(0));
+		nouveauPaquet.addCard(paquet.getPaquet().get(0));
 		nouveauPaquet.printCards();
 		
 		System.out.println("\n");
-		
-		
-		
-		
-		
-		
-		
-	
-
 		
 	}
 

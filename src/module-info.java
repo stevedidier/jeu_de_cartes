@@ -5,5 +5,5 @@
  * @author steve
  *
  */
-module jeu_de_cartes {
+module carte {
 }

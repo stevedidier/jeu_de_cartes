@@ -10,15 +10,21 @@ public class PaquetTriParRang {
 	public PaquetTriParRang(){
 
 		paquetTriParRang = new ArrayList<Card>();
-
+		
     }
 	
 	public ArrayList<Card> getPaquet() {
-		return paquetTriParRang;
+		return new ArrayList<Card>(paquetTriParRang);
 	}
 	
-	public void setPaquet(ArrayList<Card> paquetTriParRang) {
-		this.paquetTriParRang = paquetTriParRang;
+	public void setPaquet(ArrayList<Card> paquetTriParRang) throws Exception{
+		
+		if(paquetTriParRang != null) {
+			this.paquetTriParRang = new ArrayList<Card>(paquetTriParRang);
+		}else {
+			throw new IllegalArgumentException("paquet is null");
+		}
+		
 	}
 	
 	
@@ -50,12 +56,6 @@ public class PaquetTriParRang {
 							} 
 					 }
 					
-					 //if(favoriteIndex < 0 && card.getRang() >= c.getRang()  ) {
-						//favoriteIndex = index - 1;
-					//} else if(favoriteIndex < 0 && paquetTriParRang.get(n-index).getRang() < c.getRang() ) {
-						//favoriteIndex = n-index + 1;
-					//}
-					
 					
 				}
 				
@@ -79,72 +79,100 @@ public class PaquetTriParRang {
 
 	public Card radomCard() throws Exception{
 		
-		if(!paquetTriParRang.isEmpty()) {
+		if(paquetTriParRang != null) {
 			
-			Card card ;
-			
-			final  int max = paquetTriParRang.size(), min = 0;
-	
-	        Random rand = new Random(); 
-	        
-	        int nombreAleatoire = rand.nextInt(max - min + 1) + min;
-	        
-	        card = paquetTriParRang.get(nombreAleatoire);
-	        
-	        paquetTriParRang.remove(nombreAleatoire);
-	
-	        return card;
+			if(!paquetTriParRang.isEmpty()) {
+				
+				Card card ;
+				
+				final  int max = paquetTriParRang.size(), min = 0;
+		
+		        Random rand = new Random(); 
+		        
+		        int nombreAleatoire = rand.nextInt(max - min + 1) + min;
+		        
+		        card = paquetTriParRang.get(nombreAleatoire);
+		        
+		        paquetTriParRang.remove(nombreAleatoire);
+		
+		        return card;
+				
+			}else {
+				throw new Exception(" Le paquet est vide  ");
+			}
 			
 		}else {
-			throw new Exception(" Le paquet est vide  ");
+			throw new Exception("paquet is null");
 		}
+		
+		
 	
 	 
 	}
 
-	public int size(){
-	    return paquetTriParRang.size();
+	public int size() throws Exception{
+		
+		if(paquetTriParRang != null) {
+			return paquetTriParRang.size();
+		}else {
+			throw new Exception("paquet is null");
+		}
+		
+	    
 	}
 	
 	
-	public void melanger(){
+	public void melanger() throws Exception{
+		
+		if(paquetTriParRang != null) {
+			
+			if(paquetTriParRang.size() > 1) {
+	        	
+	        	Random r = new Random();
 
-        if(paquetTriParRang.size() > 1) {
-        	
-        	Random r = new Random();
+	            for (int i = paquetTriParRang.size() - 1; i > 0; i--) {
 
-            for (int i = paquetTriParRang.size() - 1; i > 0; i--) {
+	                int j = r.nextInt(i);
 
-                int j = r.nextInt(i);
-
-                Card  temp = paquetTriParRang.get(i);
-                paquetTriParRang.set(i, paquetTriParRang.get(j));
-                paquetTriParRang.set(j, temp);
+	                Card  temp = paquetTriParRang.get(i);
+	                paquetTriParRang.set(i, paquetTriParRang.get(j));
+	                paquetTriParRang.set(j, temp);
 
 
-            }
-        	
-        	
-        }
+	            }
+	        	
+	        	
+	        }
+		}else {
+			throw new Exception("paquet is null");
+		}
+
+        
 		
     }
 	
-	public void printCards() {
+	public void printCards() throws Exception{
 		
-		if(!paquetTriParRang.isEmpty()) {
+		if(paquetTriParRang != null) {
 			
-			for (Card card : paquetTriParRang) {
+			if(!paquetTriParRang.isEmpty()) {
 				
-				System.out.println(card.toString());
-				
+				for (Card card : paquetTriParRang) {
+					
+					System.out.println(card.toString());
+					
+				}
+				System.out.println();
+				System.out.println(" Ce paquet compte au total : " + paquetTriParRang.size() + " cartes ");
+			
+			}else {
+				throw new Exception(" Le paquet est vide  ");
 			}
-			System.out.println();
-			System.out.println(" Ce paquet compte au total : " + paquetTriParRang.size() + " cartes ");
-		
+			
 		}else {
-			System.out.println();
-			System.out.println(" Ce paquet est vide" );
+			throw new Exception("paquet is null");
 		}
+		
 	
 	}
 
